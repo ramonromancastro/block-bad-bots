@@ -43,9 +43,11 @@ if [ $? -eq 0 ]; then
          print "RewriteEngine On"
        }
        {
-         if (NR > 1) print "RewriteCond %{HTTP_USER_AGENT} \""$1"\" [OR]"
+         if (NR > 1) l[NR]=$1
        }
        END{
+         for (i=1; i<=NR-1; i++) { print "RewriteCond %{HTTP_USER_AGENT} \""l[i]"\" [OR]" }
+         print "RewriteCond %{HTTP_USER_AGENT} \""l[i]"\""
          print "RewriteRule .* - [F,L]"
          print "</IfModule>"
        }' $BADBOT_FILE > $BADBOT_CONF_FILE
