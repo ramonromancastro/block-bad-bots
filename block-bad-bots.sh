@@ -17,6 +17,7 @@
 # with this program; if not, write to the Free Software Foundation, Inc., 59
 # Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
+BADBOT_VERSION=1.0
 BADBOT_URL=https://badbot.itproxy.uk/badbot.txt
 BADBOT_FILE=/tmp/badbot.txt
 BADBOT_CONF_FILE=/etc/httpd/conf.d/custom.badbot.conf
@@ -38,7 +39,7 @@ if [ $? -eq 0 ]; then
          RS="";
          print "# Block bad bots"
          print "# By Ramón Román Castro <ramon.roman.c@juntadeandalucia.es>"
-         print "# https://badbot.itproxy.uk/badbot.txt"
+         print "# Using https://badbot.itproxy.uk/badbot.txt"
          print "<IfModule mod_rewrite.c>"
          print "RewriteEngine On"
        }
